@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>Thank you</title>
+<link rel="stylesheet" href="http://127.0.0.1/csi/header.css">
+</head>
+<body>
+<div align="center" id="id1">
+<div style="display:inline-block;float:left" align="left">
+<img id="id5" src="ksitlogo.jpg" alt="ksit"/>
+</div>
+<div style="display:inline-block;float:right" align="right">
+<img id="id6" src="CSILogo.jpg" alt="ksit"/>
+</div>
+<div style="display:inline-block;" align="center">
+<p id="id2">BUG ME OUT</p>
+<p id="id3">Jointly Organized By</p>
+<p id="id4">CSI and K.S Institute Of Technlology</p>  
+</div>
+<hr>
+</div>
+<div align="center" style="position:absolute;top:50%;left:45%;">
+<span style="text-align:center;">Thank You for participating in <h3>BUG ME OUT</h3></span>
+<span style="text-align:center;">wait out side for results</span>
+</div>
+
+<div  style="position:absolute;bottom:0;width:99%" align="center" >
+<hr>
+developed by department of computer science(vivek,under the guidance of Mr.Harshavardhan jr,Associate professor), KSIT.
+</div>
+</body>

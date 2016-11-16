@@ -5,34 +5,37 @@
 </head>
 <body>
 <h1>Question for csi BUG ME OUT</h1>
-<form action="http://localhost/csi/setquestion.php" method="POST" name="qform">
+<form action="http://127.0.0.1/csi/setquestion.php" method="POST" name="qform">
 <lable>question_id</lable>
-<input type="number" name="question_id" maxlen="2"/>
+<input type="number" name="question_id" maxlen="2" required/>
 <br>
 <lable>question :</lable>
 <br>
-<textarea name="question" id="question" cols="80" rows="10"></textarea>
+<textarea name="question" id="question" cols="80" rows="10" required></textarea>
 <br>
 <lable>choice:</lable>
 <br>
 <lable>a)</lable>
-<input type="text" name="choice1"/>
+<input type="text" name="choice1"required/>
 <br>
 <lable>b)</lable>
-<input type="text" name="choice2"/>
+<input type="text" name="choice2" required/>
 <br>
 <lable>c)</lable>
-<input type="text" name="choice3"/>
+<input type="text" name="choice3" required/>
 <br>
 <lable>d)</lable>
-<input type="text" name="choice4"/>
+<input type="text" name="choice4" required/>
 
 <br>
 <lable>marks :</lable>
 <br>
-<input type="number" name="marks"/>
+<input type="number" name="marks" required/>
 <br>
-
+<lable>answer :</lable>
+<br>
+<input type="text" name="answer" required/>
+<br>
 <input type="submit" value="submit"/>
 <input type="reset" value="reset"/>
 

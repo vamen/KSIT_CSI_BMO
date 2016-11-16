@@ -1,0 +1,10 @@
+<html>
+<head>
+<titel>bug me out</title>
+</head>
+<body>
+<?php
+echo "page under construction";
+?>
+</body>
+</html>

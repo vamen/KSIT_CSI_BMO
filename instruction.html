@@ -1,0 +1,107 @@
+<html>
+<head>
+<title>Timer</title>
+<link rel="stylesheet" href="http://127.0.0.1/csi/header.css">
+
+<style type="text/css">
+li{list-style-position:inside;}
+
+</style>
+<script type="text/javascript" language="javascript">
+
+var h=0;
+var m=1;
+var s=0;
+function renderTime() {
+				
+setTimeout('renderTime()',1000);
+
+if(s == 0){
+if(m==0)
+ {
+  
+ window.open("http://127.0.0.1/csi/contest.php","contest","toolbars=no");
+  window.location.assign("http://127.0.0.1/csi/endtest.html");
+ 
+  return ;
+ }
+s=59;
+--m;
+	if(m<10)
+	{
+	m="0"+m;
+	}
+}	
+else {
+--s;
+if(s<10)
+{
+	s="0"+s;
+}
+}
+
+
+ var myClock = document.getElementById('clockDisplay');
+myClock.textContent =  m + ":" + s ;
+myClock.innerText = m + ":" + s;
+}
+renderTime();
+function myFunction()
+{
+ window.open("http://127.0.0.1/csi/contest.php","contest","toolbars=no");
+window.location.assign("http://127.0.0.1/csi/endtest.html");
+ m=0;
+ s=0;
+}
+</script>
+
+</head>
+
+
+<body>
+
+<div align="center" id="id1">
+<div style="display:inline-block;float:left" align="left">
+<img id="id5" src="ksitlogo.jpg" alt="ksit"/>
+</div>
+<div style="display:inline-block;float:right" align="right">
+<img id="id6" src="CSILogo.jpg" alt="ksit"/>
+</div>
+<div style="display:inline-block;" align="center">
+<p id="id2">BUG ME OUT</p>
+<p id="id3">Jointly Organized By</p>
+<p id="id4">CSI and K.S Institute Of Technlology</p>  
+<hr>
+<div ><span>Time left :</span><lable id="clockDisplay" class="clockStyle"></lable></div>
+</div>
+</div><!--<form action="" id="myForm">
+<label>Name:</label><input type="text" name="name"/></br>
+<label>Age:</label><input type="text" name="age"/></br>
+<input type="submit" value="submit"/><input type="reset" value="reset"/>
+</form>
+-->
+
+<div align="left" style="padding-left:40px">
+<h3>Instructions for Bug Me Out</h3>
+
+
+<ul align="left"style="list-style-type:square">
+<li >i dont know the rules yet you do what ever you want but be honest</li>
+<li>i dont know the rules yet you do what ever you want but be honest</li>
+<li>i dont know the rules yet you do what ever you want but be honest</li>
+<li>i dont know the rules yet you do what ever you want but be honest</li>
+</ul>
+
+</div>
+<div align="center">
+<button style="vertical-align: middle;display: inline-block;height:30px;width:100px;background-color:0f3260;color:white;border:0px"  onclick="myFunction()">Proceed</button>
+</div>
+
+
+<div  style="position:absolute;bottom:0;width:99%" align="center" >
+<hr>
+developed by department of computer science(by vivek,under the guidance of Mr.Harshavardhan jr,Associate professor) , KSIT.
+</div>
+</body>
+</html>
+

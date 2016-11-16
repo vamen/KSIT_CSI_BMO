@@ -1,0 +1,252 @@
+<html>
+<head>
+<title>Bug Me Out</title>
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+
+
+#id1
+{
+	background-color:#0f3260;
+	color: white;
+}
+
+#id2
+{
+	font-family: "Times New Roman";
+	font-size: 50px;
+	color: yellow;
+}
+
+
+#id3
+{
+	position: absolute;
+	top:50px; left:550px;
+	color: white;
+	font-family: "Times New Roman";
+	font-size: 20px;
+}
+#id4
+{
+	position: absolute;
+	top:65px; left:460px;
+	color:yellow;
+	font-family: "Times New Roman";
+	font-size: 25px;
+}
+
+#id5
+{
+	height: 100px;
+	width: 100px;
+	position: absolute;
+	top:13px;
+	left:350px;
+}
+
+
+
+#clockdiv{
+	position: absolute;
+	top:70px; left:1100px;
+  font-family: sans-serif;
+  color: #fff;
+  display: inline-block;
+  
+  text-align: center;
+  
+}
+
+#clockdiv > div{
+  
+  
+  border-radius: 3px;
+  background: #0f3260;
+  display: inline-block;
+}
+
+#clockdiv div > span{
+  
+  border-radius: 3px;
+  background: #0f3260;
+  display: inline-block;
+}
+
+.smalltext{
+  padding-top: 5px;
+  font-size: 16px;
+}
+
+
+
+
+
+</style>
+
+<body  >
+
+<!--<div id="clockdiv">
+ 
+  
+  <div>
+    <span class="minutes"></span>
+    <div class="smalltext">Minutes</div>
+  </div>
+  <div>
+    <span class="seconds"></span>
+    <div class="smalltext">Seconds</div>
+  </div>
+</div>-->
+
+
+
+
+
+
+
+
+
+
+
+<div align="center" id="id1">
+<p id="id2">BUG ME OUT</p>
+<p id="id3">Jointly Organized By</p>
+ <p id="id4">CSI and K.S Institute Of Technlology</p>  
+<hr>
+<img id="id5" src="ksitlogo.jpg" alt="ksit"/>
+<div ><span>Time left :</span><lable id="clockDisplay" class="clockStyle"></lable></div>
+<script type="text/javascript" language="javascript">
+var h=0;
+var m=2;
+var s=5;
+function renderTime() {
+				
+setTimeout('renderTime()',1000);
+
+if(s == 0){
+if(m==0)
+ {
+  alert("the contest is getting submitted\n");
+  document.contest.submit(); 
+  return ;
+ }
+s=59;
+--m;
+	if(m<10)
+	{
+	m="0"+m;
+	}
+}	
+else {
+--s;
+if(s<10)
+{
+	s="0"+s;
+}
+}
+
+
+ var myClock = document.getElementById('clockDisplay');
+myClock.textContent =  m + ":" + s ;
+myClock.innerText = m + ":" + s;
+}
+renderTime();
+
+</script>
+
+</div>
+
+
+
+<div id="div1" style="padding-left:20px;padding-right:20px">
+
+<?php
+/*
+if(!isset($_COOKIE['csiusn']))
+{
+echo "something is wrong contact coordinator<br>(cookie not set)";
+exit();
+}
+*/
+$username = "root";
+$password = "root";
+$hostname = "localhost"; 
+$databasename="csi_BMO";
+
+
+$dbhandle =new mysqli($hostname, $username, $password,$databasename)
+  or die("Unable to connect to MySQL");
+
+if ($dbhandle->connect_error) {
+    die('Connect Error (' . $mysqli->connect_errno . ') '
+            . $mysqli->connect_error);
+}
+$result=$dbhandle->query("select * from Questions");
+
+$choices=$dbhandle->prepare("select choice_text from Choice where question_id=?");
+
+
+echo "<form action=\"http://localhost/csi/storeresult.php\" id=\"contest\" name=\"contest\" method=\"POST\">";
+echo "<lable>enter usn :<lable> "; 
+echo "<input type=\"text\" name=\"usn\" size=\"30\" maxlen=\"10\" placeholder=\"eg 1ks14cs000\" pattern=\"([1-4]{1}[A-Za-z]{2}[0-9]{2}[A-Za-z]{2}[0-9]{3}|[0-9]+\" title=\"rccyybbnnn\" required/><br>"; 
+ while($row=$result->fetch_row())
+    {
+    	echo "<pre><lable>$row[0] ) $row[1]</lable></pre><br>";
+    	
+        
+        $choices->bind_param("d",$row[0]);
+            	
+    	if(!$choices->execute())
+        {
+  			echo "somthing went wrong in choice ".$choices->error."</body></html>";
+  
+ 		    exit();
+        }
+        $choices->bind_result($choice_text);  
+        $ch=array('a','b','c','d');
+        $i=1;
+        while($choices->fetch())
+        {
+            echo "<input type=\"radio\" value=\"$i\" name=\"".$row[0]."\"><pre>".$choice_text."</pre><br>";
+            $i=$i+1;
+        }  
+         echo "<input type=\"radio\" value=\"0\" name=\"".$row[0]."\">not answered";
+       echo "<hr width=\"80%\"><br>";
+    }
+echo "<div align=\"center\"><input style=\"width:80px;height:30px;background-color:#0f3260;color:white;border:0px;\"type=\"submit\" value=\"Submit\"/></div>";
+echo "</form>";
+$choices->close();
+$dbhandle->close();
+
+?>
+</div>
+
+
+
+
+</body>
+</html>
+
